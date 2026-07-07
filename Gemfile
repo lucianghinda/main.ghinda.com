@@ -19,6 +19,7 @@ group :jekyll_plugins do
   gem "jekyll-sitemap"
   gem "jekyll-target-blank"
   gem "jekyll-tailwind", "~> 2.0" # crbelaus/jekyll-tailwind: compiles Tailwind via a build hook, no Node
+  gem "jekyll-redirect-from" # redirects legacy ghinda.com URLs to the new pages
 end
 
 # Ships the standalone Tailwind v4 CLI binary; pinning ~> 4.0 selects Tailwind v4.

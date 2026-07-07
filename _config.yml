@@ -52,6 +52,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-target-blank
+  - jekyll-redirect-from # redirects old ghinda.com URLs to their new homes
 
 target-blank:
   noreferrer: false

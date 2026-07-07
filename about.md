@@ -1,5 +1,14 @@
 ---
 layout: about
+redirect_from:
+  - /contact.html
+  - /hire-me.html
+  - /products-and-services.html
+  - /projects-and-apps.html
+  - /presentations.html
+  - /learning.html
+  - /learning-2.html
+  - /learning-3.html
 ---
 
 I'm Lucian Ghinda — a senior product engineer based in Bucharest, Romania. I
