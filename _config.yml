@@ -1,7 +1,7 @@
 title: Lucian Ghinda # The title of the blog
 author: Lucian Ghinda # Your name
 email: ideas@ghinda.com # your email shown in the footer
-url: https://blog.ghinda.com # this is your site's root address.
+url: https://ghinda.com # this is your site's root address.
 description: > # this means to ignore newlines until the next key
   Essays and notes on products, ideas, teams, and creativity — the personal
   writing home of Lucian Ghinda, a senior product engineer working in Ruby & Rails.

@@ -1,7 +1,7 @@
-# blog.ghinda.com
+# ghinda.com
 
-The personal blog of Lucian Ghinda — essays and notes on products, ideas, teams,
-and creativity. Built with [Jekyll](https://jekyllrb.com/) and a custom
+The personal website of Lucian Ghinda — essays and notes on products, ideas,
+teams, and creativity. Built with [Jekyll](https://jekyllrb.com/) and a custom
 "quiet-editorial" theme styled with [Tailwind CSS v4](https://tailwindcss.com/).
 
 ## Stack
