@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# Start the local Jekyll dev server (Tailwind compiles automatically via the
+# jekyll-tailwind build hook — no Node step). To refresh the aggregated feed
+# stream shown on the homepage, run `bundle exec bin/fetch_feeds` first.
+
+set -e
+
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+echo -e "${GREEN}Starting Jekyll development server...${NC}"
+
+if ! bundle check; then
+  echo -e "${GREEN}Installing missing dependencies...${NC}"
+  bundle install
+  if [ $? -ne 0 ]; then
+    echo -e "${RED}Error: Failed to install dependencies${NC}"
+    exit 1
+  fi
+fi
+
+bundle exec jekyll serve --drafts --open-url --port 4000 --host 0.0.0.0 --livereload

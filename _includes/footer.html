@@ -1,0 +1,31 @@
+<footer class="mt-auto border-t border-stone-200 dark:border-stone-800 py-8 text-sm text-stone-500 dark:text-stone-400">
+  {%- if page.previous.url or page.next.url -%}
+  <nav class="mb-6 flex justify-between gap-6">
+    <span>
+      {%- if page.previous.url -%}
+      <a href="{{ page.previous.url | relative_url }}" class="hover:text-amber-600 dark:hover:text-amber-400">&#8592;&nbsp;{{ page.previous.title | escape }}</a>
+      {%- endif -%}
+    </span>
+    <span class="text-right">
+      {%- if page.next.url -%}
+      <a href="{{ page.next.url | relative_url }}" class="hover:text-amber-600 dark:hover:text-amber-400">{{ page.next.title | escape }}&nbsp;&#8594;</a>
+      {%- endif -%}
+    </span>
+  </nav>
+  {%- endif -%}
+
+  {%- include social.html -%}
+
+  <p class="mt-4">
+    <a href="{{ "/uses/" | relative_url }}" class="hover:text-amber-600 dark:hover:text-amber-400">The tools &amp; software I use &#8594;</a>
+  </p>
+
+  <p class="mt-4">
+    Written by <a href="{{ "/about.html" | relative_url }}" class="hover:text-amber-600 dark:hover:text-amber-400">{{ site.author }}</a>.
+    Feedback welcome at <a href="mailto:{{ site.email }}" class="hover:text-amber-600 dark:hover:text-amber-400">{{ site.email }}</a>.
+  </p>
+
+  <p class="mt-2">
+    &copy; 2019&ndash;{{ site.time | date: "%Y" }} {{ site.author }}. All rights reserved.
+  </p>
+</footer>

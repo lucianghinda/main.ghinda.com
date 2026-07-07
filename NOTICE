@@ -1,0 +1,18 @@
+blog.ghinda.com
+Copyright 2019–2026 Lucian Ghinda
+
+The source code of this site is licensed under the Apache License, Version 2.0.
+See LICENSE.md for details.
+
+This product includes third-party code governed by its own license:
+
+--------------------------------------------------------------------------------
+
+jekyll-anchor-headings (_includes/anchor_headings.html)
+  Version: 1.0.4
+  Source:  https://github.com/allejo/jekyll-anchor-headings
+  License: MIT License
+  Copyright (c) 2017–2019 Vladimir "allejo" Jimenez
+
+  The full MIT license text is retained in the header comment of
+  _includes/anchor_headings.html.

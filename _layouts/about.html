@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<div class="mb-8">
+  <a href="{{ "/" | relative_url }}" class="text-sm text-stone-500 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400">&#8592;&nbsp;Home</a>
+</div>
+
+<header class="mb-8 flex flex-col gap-5 sm:flex-row sm:items-center">
+  {%- if site.avatar -%}
+  <img src="{{ site.avatar | relative_url }}" alt="{{ site.author | escape }}"
+       width="112" height="112" loading="lazy"
+       class="size-28 shrink-0 rounded-full object-cover object-top ring-1 ring-stone-200 dark:ring-stone-700">
+  {%- endif -%}
+  <div>
+    <h1 class="text-3xl font-bold tracking-tight text-ink dark:text-ink-dark">{{ site.author }}</h1>
+    <p class="mt-2 font-serif text-lg text-stone-600 dark:text-stone-300">
+      Senior product engineer — working in Ruby &amp; Rails since 2007.
+    </p>
+    <div class="mt-4">
+      {%- include social.html -%}
+    </div>
+  </div>
+</header>
+
+<div class="prose dark:prose-invert max-w-none e-content" itemprop="articleBody">
+  {{ content }}
+</div>

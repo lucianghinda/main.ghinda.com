@@ -1,0 +1,64 @@
+name: Deploy site to GitHub Pages
+
+# This site can't use GitHub's built-in Jekyll builder: it compiles Tailwind
+# through the jekyll-tailwind plugin, which the native builder won't run. So we
+# build with our own Gemfile here and publish the result as a Pages artifact.
+#
+# One-time setup in the repo: Settings > Pages > Build and deployment >
+# Source = "GitHub Actions".
+
+on:
+  # Rebuild and deploy on every push to the default branch.
+  push:
+    branches: [main]
+  # Allow manual runs from the Actions tab.
+  workflow_dispatch:
+
+# Least privilege for the job, plus what the Pages deploy needs.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one deploy at a time; let an in-flight one finish rather than cancel it.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          # Local dev uses Ruby 4.0.1 (.ruby-version, which is gitignored), but
+          # 3.4 is reliably available on runners and the Gemfile supports it.
+          # Bump this if the build ever needs a newer Ruby.
+          ruby-version: "3.4"
+          bundler-cache: true
+
+      - name: Build with Jekyll
+        # Compiles Tailwind and writes _site. Production env turns on analytics.
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

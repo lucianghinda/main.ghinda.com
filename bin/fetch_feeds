@@ -1,0 +1,146 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# Aggregates external RSS/Atom feeds into _data/external_posts.yml so the
+# homepage can merge them with local posts at build time. Run before deploying:
+#
+#   bundle exec bin/fetch_feeds
+#
+# Design notes:
+#   * Offline/robustness — on a feed failure it keeps that source's previously
+#     committed items instead of dropping them, and never clobbers a good file
+#     with nothing. The build stays deterministic and works with no network.
+#   * Dates are written as unquoted ISO 8601 Time scalars (via Psych) so Jekyll
+#     reads them back as Time, keeping them sortable against local post dates in
+#     Liquid (`site.posts | concat: externals | sort: "date"`).
+
+require "net/http"
+require "uri"
+require "rss"
+require "yaml"
+require "time"
+require "fileutils"
+
+FEEDS = {
+  "notes"          => "https://notes.ghinda.com/feed.atom",
+  "allaboutcoding" => "https://allaboutcoding.ghinda.com/rss.xml"
+}.freeze
+
+DATA_FILE = File.expand_path("../_data/external_posts.yml", __dir__)
+MAX_PER_FEED = 12
+DESC_LIMIT = 160
+
+def fetch(url, redirects = 3)
+  uri = URI.parse(url)
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = uri.scheme == "https"
+  http.open_timeout = 10
+  http.read_timeout = 10
+  req = Net::HTTP::Get.new(uri.request_uri, "User-Agent" => "ghinda-blog-feed-fetcher")
+  res = http.request(req)
+
+  case res
+  when Net::HTTPSuccess
+    res.body
+  when Net::HTTPRedirection
+    raise "too many redirects" if redirects <= 0
+
+    fetch(URI.join(url, res["location"]).to_s, redirects - 1)
+  else
+    raise "HTTP #{res.code}"
+  end
+end
+
+def to_time(value)
+  return nil if value.nil?
+  return value if value.is_a?(Time)
+
+  raw = value.respond_to?(:content) ? value.content : value
+  return raw if raw.is_a?(Time)
+
+  Time.parse(raw.to_s)
+rescue ArgumentError, TypeError
+  nil
+end
+
+def clean_description(text)
+  return nil if text.nil?
+
+  clean = text.to_s.gsub(/<[^>]+>/, " ").gsub(/\s+/, " ").strip
+  return nil if clean.empty?
+  return clean if clean.length <= DESC_LIMIT
+
+  "#{clean[0, DESC_LIMIT].sub(/\s+\S*\z/, '')}…"
+end
+
+def atom_link(entry)
+  link = entry.link
+  href = link.respond_to?(:href) ? link.href : nil
+  href ||= entry.links.map(&:href).compact.first if entry.respond_to?(:links)
+  href
+end
+
+def normalize(feed, source)
+  items =
+    if feed.is_a?(RSS::Atom::Feed)
+      feed.entries.map do |e|
+        {
+          "title"       => e.title&.content.to_s.strip,
+          "url"         => atom_link(e),
+          "description" => clean_description((e.summary || e.content)&.content),
+          "source"      => source,
+          "date"        => to_time(e.published || e.updated)
+        }
+      end
+    else
+      feed.items.map do |i|
+        {
+          "title"       => i.title.to_s.strip,
+          "url"         => i.link.to_s,
+          "description" => clean_description(i.description),
+          "source"      => source,
+          "date"        => to_time(i.date || i.pubDate)
+        }
+      end
+    end
+
+  items.reject { |it| it["url"].to_s.empty? || it["title"].empty? || it["date"].nil? }
+end
+
+def load_cached
+  return {} unless File.exist?(DATA_FILE)
+
+  data = YAML.safe_load_file(DATA_FILE, permitted_classes: [Time]) || []
+  data.group_by { |it| it["source"] }
+rescue StandardError => e
+  warn "warning: could not read existing #{DATA_FILE} (#{e.message})"
+  {}
+end
+
+cached = load_cached
+result = {}
+
+FEEDS.each do |source, url|
+  items = normalize(RSS::Parser.parse(fetch(url), false), source).first(MAX_PER_FEED)
+  if items.empty?
+    warn "warning: #{source} returned no usable items; keeping cached copy"
+    result[source] = cached[source] || []
+  else
+    result[source] = items
+    puts "fetched #{items.size} items from #{source}"
+  end
+rescue StandardError => e
+  warn "warning: failed to fetch #{source} (#{e.message}); keeping cached copy"
+  result[source] = cached[source] || []
+end
+
+all = result.values.flatten.sort_by { |it| it["date"] }.reverse
+
+if all.empty?
+  warn "error: no items from any source and no cache; leaving #{DATA_FILE} unchanged"
+  exit 0
+end
+
+FileUtils.mkdir_p(File.dirname(DATA_FILE))
+File.write(DATA_FILE, all.to_yaml)
+puts "wrote #{all.size} items to #{DATA_FILE}"

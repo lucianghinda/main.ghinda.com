@@ -1,0 +1,10 @@
+image: "ruby:2.6"
+
+before_script:
+  - echo "Do something here"
+
+job_1:
+  - echo "This is first build job"
+
+job_2:
+  - echo "This is second build job"

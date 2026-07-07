@@ -1,0 +1,19 @@
+{%- comment -%}
+  Renders the flat site.social_links list (name + url pairs from _config.yml).
+  Internal links (RSS) get relative_url; external links open in a new tab.
+  A link flagged `me: true` emits rel="me" for identity verification.
+{%- endcomment -%}
+{%- if site.social_links -%}
+<ul class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-stone-500 dark:text-stone-400">
+  {%- for link in site.social_links -%}
+  {%- assign is_external = link.url contains "://" -%}
+  <li>
+    <a class="hover:text-amber-600 dark:hover:text-amber-400"
+       href="{% if is_external %}{{ link.url }}{% else %}{{ link.url | relative_url }}{% endif %}"
+       {%- if is_external %} target="_blank" rel="noopener{% if link.me %} me{% endif %}"{% elsif link.me %} rel="me"{% endif -%}>
+      {{ link.name }}
+    </a>
+  </li>
+  {%- endfor -%}
+</ul>
+{%- endif -%}

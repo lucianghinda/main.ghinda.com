@@ -1,0 +1,149 @@
+# Testimonials shown on /testimonials.html, grouped into sections.
+#
+# Quotes are verbatim from their sources — trims are marked with … and the
+# wording is never changed. Sources:
+#   - goodenoughtesting.com/testimonials
+#   - goodenoughtesting.com/learn/reliable-test-case-generation-with-ai
+#   - LinkedIn recommendations (previously on ghinda.com/recommendations.html)
+#
+# Each section: id, title, lead (small line under the title), optional
+# more { label, url } link, and entries. Each entry: name, role, optional
+# url (link on the name), quote (markdown, may have multiple paragraphs).
+
+- id: teaching
+  title: "On teaching test design"
+  lead: >-
+    From Good Enough Testing — my live workshops teaching systematic
+    test-case design to Ruby developers.
+  more:
+    label: "More testimonials at goodenoughtesting.com"
+    url: "https://goodenoughtesting.com/testimonials"
+  entries:
+    - name: "José Valim"
+      role: "Creator of Elixir & Chief Adoption Officer at Dashbit"
+      avatar: "jose-valim.webp"
+      quote: >-
+        At the moment, LLMs might go unchecked and suggest tests that are
+        either redundant or that miss important corner cases. During the
+        workshop, Lucian introduced useful techniques to help developers and
+        AI reason about our tests and the problem space.
+
+    - name: "Kasper Timm Hansen"
+      role: "Rails core team alumni & Rails consultant"
+      url: "https://kaspth.omg.lol"
+      avatar: "kasper-timm-hansen.webp"
+      quote: |
+        When testing, I was anxious about what coverage is enough. I'm a
+        staff-level engineer, but still it seemed elusive.
+
+        Lucian's guidance helped settle it for me and I'm feeling confident
+        that I'm having proper test coverage. It's also clear knowledge I can
+        bring with me to my next client and team.
+
+    - name: "Viktor Schmidt"
+      role: "Senior Staff Engineer @ ablefy"
+      url: "https://x.com/viktorianer4"
+      avatar: "viktor-schmidt.webp"
+      quote: |
+        Just a big wow!
+
+        Today I spontaneously attended a workshop by Lucian Ghinda on
+        *Testing: How to write fewer tests and cover more cases*. Back in my
+        days at *Hochschule für Technik und Wirtschaft Berlin*, I spent almost
+        6 months studying this topic.
+
+        Even though my professor explained the mathematics behind testing, I
+        could never quite apply it to my code. But now, after this workshop,
+        I finally feel like I can do it! Just wow 😳.
+
+    - name: "Felipe Mesquita"
+      role: "Ruby on Rails Developer"
+      url: "https://ruby.social/@felipe"
+      avatar: "felipe-mesquita.webp"
+      quote: |
+        I attended this workshop out of a general interest in improving my
+        testing skills, but it helped me uncover an unknown unknown about more
+        formal/systematic methodologies to determine the minimum, maximum and
+        Good Enough© number of necessary test cases.
+
+        Independently of how you implement the tests, this workshop teaches an
+        approach that enables anyone to end up with the exact same test cases
+        for a given piece of code.
+
+        This feels as powerful as when the concept of refactorings and smells
+        finally clicked for me: given some class or method two people would
+        identify the same smell and remedy it with the same refactoring
+        recipe, thus arriving at the same resulting code.
+
+    - name: "Jakob Cosoroaba"
+      role: "Senior Developer"
+      url: "https://jakob.cosoroaba.ro"
+      avatar: "jakob-cosoroaba.webp"
+      quote: |
+        This workshop helped me find the language to talk and think about
+        tests, for years I've been writing tests on what I “felt” should be
+        tested, which omitted important things.
+
+        I enjoyed the real-world approach where Lucian showed us how to think
+        about tests, what risks need to be covered and what tests truly
+        matter.
+
+    - name: "Dani Donisa"
+      role: "Senior FullStack Engineer at SUSE"
+      url: "https://www.linkedin.com/in/danidonisa/"
+      avatar: "dani-donisa.webp"
+      quote: >-
+        What I liked the most were the several techniques to come up with
+        tests, and the way they were explained — Lucian, you do it right!
+        Interesting and engaging! It will help me understand what tests can I
+        come up with from now on, and analyze the ones we have.
+
+- id: leadership
+  title: "On leadership and earlier work"
+  lead: >-
+    From my years leading the innovation programs at METRO SYSTEMS Romania —
+    roles and titles are as they were at the time.
+  more:
+    label: "More recommendations on LinkedIn"
+    url: "https://www.linkedin.com/in/lucianghinda/details/recommendations"
+  entries:
+    - name: "Elena Bogus"
+      role: "Innovation Product Owner at METRO SYSTEMS"
+      url: "https://www.linkedin.com/in/elena-bogus-131b671"
+      avatar: "elena-bogus.webp"
+      quote: |
+        Lucian became that person who, along the years, became synonym with
+        innovation, with open mind, with creativity, with problem solving,
+        with experimentation and with passion for learning. And with the joy
+        and real pleasure to work with and for people. …
+
+        I think, the most important values that Lucian brought to Metro
+        Systems and the people he worked with are the sheer joy for solving
+        problems creatively, the attitude of openness to embrace any idea and
+        the caring and the support he gave everybody. These are values that
+        have inspired me and others to embrace innovation and change.
+
+    - name: "Aura Virgolici"
+      role: "Engineering Store Experience Domain Owner at METRO SYSTEMS"
+      url: "https://www.linkedin.com/in/aura-mihaela-virgolici"
+      avatar: "aura-virgolici.webp"
+      quote: |
+        Lucian is always positive, energetic, full of ideas, inspiring for
+        everyone around him. …
+
+        In conclusion, I recommend Lucian for bringing innovation in any kind
+        of organization, in the most authentic way possible.
+
+    - name: "Liz Yeung"
+      role: "Product Management and Marketing Manager"
+      url: "https://www.linkedin.com/in/elizabethyeung/"
+      avatar: "liz-yeung.webp"
+      quote: |
+        I have had the luxury of working with Lucian, and have found him to be
+        a great project manager and an excellent colleague. Working remotely
+        together is always a challenge, and Lucian easily eliminates this
+        distance by being in constant communication.
+
+        One of the attributes I appreciate about Lucian is his patience and
+        efforts. He takes great lengths in educating his peers with his vast
+        knowledge.

@@ -1,0 +1,258 @@
+/*
+ * Quiet-editorial theme for blog.ghinda.com.
+ * Compiled by jekyll-tailwind (tailwindcss-ruby, no Node) into
+ * _site/assets/css/styles.css, which _includes/head.html links.
+ *
+ * Direction: light-first, near-monochrome, one warm amber accent.
+ * Serif reading body (Literata) + sans display/UI (Inter). Flat, hairline
+ * dividers, no cards or shadows.
+ */
+
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Manual dark-mode toggle: `dark:` utilities apply when <html> has the `.dark`
+   class, which the inline script in head.html sets from localStorage / OS. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+html { color-scheme: light; }
+html.dark { color-scheme: dark; }
+
+/* ---- Self-hosted fonts (Fontsource via jsDelivr, same pattern as the sister blog) ---- */
+
+/* Literata — literary serif reading face, with real italics */
+@font-face {
+  font-family: "Literata";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/literata@latest/latin-400-normal.woff2) format("woff2"),
+       url(https://cdn.jsdelivr.net/fontsource/fonts/literata@latest/latin-400-normal.woff) format("woff");
+}
+@font-face {
+  font-family: "Literata";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/literata@latest/latin-400-italic.woff2) format("woff2"),
+       url(https://cdn.jsdelivr.net/fontsource/fonts/literata@latest/latin-400-italic.woff) format("woff");
+}
+@font-face {
+  font-family: "Literata";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/literata@latest/latin-700-normal.woff2) format("woff2"),
+       url(https://cdn.jsdelivr.net/fontsource/fonts/literata@latest/latin-700-normal.woff) format("woff");
+}
+@font-face {
+  font-family: "Literata";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/literata@latest/latin-700-italic.woff2) format("woff2"),
+       url(https://cdn.jsdelivr.net/fontsource/fonts/literata@latest/latin-700-italic.woff) format("woff");
+}
+
+/* Inter — quiet grotesk for headings, nav, badges, and other UI */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-400-normal.woff2) format("woff2"),
+       url(https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-400-normal.woff) format("woff");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-500-normal.woff2) format("woff2"),
+       url(https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-500-normal.woff) format("woff");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-600-normal.woff2) format("woff2"),
+       url(https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-600-normal.woff) format("woff");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-700-normal.woff2) format("woff2"),
+       url(https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-700-normal.woff) format("woff");
+}
+
+@theme {
+  --font-serif: "Literata", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Quiet editorial palette: near-monochrome + one warm accent */
+  --color-paper: #faf9f7;      /* light page background (warm off-white) */
+  --color-paper-dark: #1a1917; /* dark page background (warm near-black) */
+  --color-ink: #22201d;        /* light-mode body text (warm charcoal) */
+  --color-ink-dark: #d9d5cf;   /* dark-mode body text */
+
+  /* Typography plugin tokens — light */
+  --prose-body: var(--color-stone-700);
+  --prose-headings: var(--color-stone-900);
+  --prose-lead: var(--color-stone-600);
+  --prose-links: var(--color-stone-900);
+  --prose-bold: var(--color-stone-900);
+  --prose-counters: var(--color-stone-500);
+  --prose-bullets: var(--color-stone-300);
+  --prose-hr: var(--color-stone-200);
+  --prose-quotes: var(--color-stone-700);
+  --prose-quote-borders: var(--color-amber-500);
+  --prose-captions: var(--color-stone-500);
+  --prose-code: var(--color-stone-800);
+  --prose-code-bg: color-mix(in srgb, var(--color-amber-700) 12%, transparent);
+  --prose-pre-code: var(--color-stone-100);
+  --prose-pre-bg: #1c1917;
+  --prose-th-borders: var(--color-stone-300);
+  --prose-td-borders: var(--color-stone-200);
+
+  /* Typography plugin tokens — dark (prose-invert) */
+  --prose-invert-body: var(--color-stone-300);
+  --prose-invert-headings: var(--color-stone-100);
+  --prose-invert-lead: var(--color-stone-400);
+  --prose-invert-links: var(--color-stone-50);
+  --prose-invert-bold: var(--color-stone-100);
+  --prose-invert-counters: var(--color-stone-400);
+  --prose-invert-bullets: var(--color-stone-600);
+  --prose-invert-hr: var(--color-stone-700);
+  --prose-invert-quotes: var(--color-stone-200);
+  --prose-invert-quote-borders: var(--color-amber-400);
+  --prose-invert-captions: var(--color-stone-400);
+  --prose-invert-code: var(--color-stone-200);
+  --prose-invert-code-bg: color-mix(in srgb, var(--color-amber-300) 10%, transparent);
+  --prose-invert-pre-code: var(--color-stone-100);
+  --prose-invert-pre-bg: #14120f;
+  --prose-invert-th-borders: var(--color-stone-600);
+  --prose-invert-td-borders: var(--color-stone-700);
+}
+
+/* ---- Reading typography: serif body, sans headings, quiet amber links ---- */
+@utility prose {
+  & {
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+    line-height: 1.75;
+  }
+
+  & h1, & h2, & h3, & h4, & h5, & h6 {
+    font-family: var(--font-sans);
+    letter-spacing: -0.015em;
+  }
+  & h1 { font-size: 1.9rem; font-weight: 700; }
+  & h2 { font-size: 1.45rem; font-weight: 700; margin-top: 2.25rem; }
+  & h3 { font-size: 1.2rem; font-weight: 600; }
+  & h4 { font-size: 1.05rem; font-weight: 600; }
+
+  /* Single-accent links: hairline underline, amber on hover */
+  & a {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    text-decoration-color: color-mix(in srgb, var(--color-stone-500) 45%, transparent);
+    transition: text-decoration-color 0.15s ease;
+  }
+  & a:hover { text-decoration-color: var(--color-amber-600); }
+
+  /* Inline code: no backtick pseudo-quotes, subtle tinted chip */
+  & code::before, & code::after { content: none; }
+  & code {
+    font-size: 0.9em;
+    padding: 0.1rem 0.3rem;
+    border-radius: 0.25rem;
+  }
+
+  /* Fenced code blocks: flat, square, dark (see syntax-highlighting.css) */
+  & pre { border-radius: 0; }
+
+  /* Italic, amber-ruled blockquotes */
+  & blockquote {
+    font-style: italic;
+    font-weight: 400;
+    quotes: none;
+    border-inline-start-width: 2px;
+  }
+  & blockquote p:first-of-type::before,
+  & blockquote p:last-of-type::after { content: none; }
+
+  & img { margin-inline: auto; }
+
+  & thead th, & th { font-family: var(--font-sans); }
+}
+
+/* ---- Small uppercase label used on post lists and post headers ---- */
+@utility badge {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 0.05rem 0.45rem;
+  border-radius: 0.2rem;
+  border: 1px solid var(--color-stone-300);
+  color: var(--color-stone-500);
+  white-space: nowrap;
+}
+.dark .badge {
+  border-color: var(--color-stone-600);
+  color: var(--color-stone-400);
+}
+
+/* ---- Heading anchor links injected by _includes/anchor_headings.html ---- */
+.heading-anchor {
+  margin-inline-start: 0.35rem;
+  color: var(--color-amber-600);
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.dark .heading-anchor { color: var(--color-amber-400); }
+h1:hover .heading-anchor,
+h2:hover .heading-anchor,
+h3:hover .heading-anchor,
+h4:hover .heading-anchor,
+h5:hover .heading-anchor,
+h6:hover .heading-anchor,
+.heading-anchor:focus { opacity: 1; }
+
+/* ---- GitHub-style task lists ---- */
+.task-list-item input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-right: 0.5em;
+  vertical-align: middle;
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  background-color: var(--color-paper);
+  border: 1px solid var(--color-stone-300);
+  border-radius: 0.25rem;
+}
+.task-list-item input[type="checkbox"]:checked {
+  background-color: var(--color-amber-500);
+  border-color: var(--color-amber-500);
+}
+.task-list-item input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}

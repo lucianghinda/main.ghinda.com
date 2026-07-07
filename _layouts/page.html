@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<div class="mb-8">
+  <a href="{{ "/" | relative_url }}" class="text-sm text-stone-500 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400">&#8592;&nbsp;Home</a>
+</div>
+
+<header class="mb-10">
+  <h1 class="text-3xl font-bold tracking-tight text-ink dark:text-ink-dark">{{ page.title }}</h1>
+  {%- if page.lead -%}
+  <p class="mt-3 font-serif text-lg leading-relaxed text-stone-600 dark:text-stone-300">
+    {{ page.lead }}
+  </p>
+  {%- endif -%}
+</header>
+
+<div class="prose dark:prose-invert max-w-none">
+  {{ content }}
+</div>

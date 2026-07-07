@@ -1,0 +1,77 @@
+title: Lucian Ghinda # The title of the blog
+author: Lucian Ghinda # Your name
+email: ideas@ghinda.com # your email shown in the footer
+url: https://blog.ghinda.com # this is your site's root address.
+description: > # this means to ignore newlines until the next key
+  Essays and notes on products, ideas, teams, and creativity — the personal
+  writing home of Lucian Ghinda, a senior product engineer working in Ruby & Rails.
+favicon: "./favicon.ico" # set the favicon of the site
+avatar: "/assets/images/lucian-ghinda.webp" # portrait shown on the about page
+
+show_excerpts: false # set to true to show excerpts on the homepage
+
+permalink: /:categories/:year/:title:output_ext
+
+# Social / hub links, rendered by _includes/social.html and the footer.
+# A flat list of { name, url } pairs — order here is the order shown.
+social_links:
+  - name: GitHub
+    url: "https://github.com/lucianghinda"
+  - name: X
+    url: "https://x.com/lucianghinda"
+  - name: Mastodon
+    url: "https://ruby.social/@lucian"
+    me: true # emits rel="me" for identity verification
+  - name: Bluesky
+    url: "https://bsky.app/profile/lucianghinda.com"
+  - name: LinkedIn
+    url: "https://www.linkedin.com/in/lucianghinda"
+  - name: RSS
+    url: "/feed.xml"
+
+# Build settings
+twitter:
+  card: summary
+  username: lucianghinda
+
+# Tailwind v4 via crbelaus/jekyll-tailwind: compiles _tailwind.css into the built
+# site at _site/assets/css/styles.css. No Node — tailwindcss-ruby ships the CLI.
+tailwind:
+  input: "_tailwind.css"
+  output: "_site/assets/css/styles.css"
+  minify: true
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  auto_ids: true
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-target-blank
+
+target-blank:
+  noreferrer: false
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - config
+  - Capfile
+  - Procfile
+  - Rakefile
+  - workspace.yml
+  - bin
+  - _tailwind.css
+  - scripts
+  - README.md
+  - LICENSE.md
+  - NOTICE
