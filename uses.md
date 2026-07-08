@@ -4,8 +4,7 @@ permalink: /uses/
 title: Uses
 lead: >-
   The tools, software, and services I reach for to build products, write, and
-  run my corner of the internet. It's a living page — I update it as my setup
-  changes.
+  run my sites — updated as my setup changes.
 description: >-
   The tools, software, and services Lucian Ghinda uses — for building products
   in Ruby and Rails, AI-assisted development, writing, and running his

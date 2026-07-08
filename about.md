@@ -29,8 +29,8 @@ community**.
 - **AI-assisted development** — I write a
   [series about using LLMs to write Ruby and Rails code](https://allaboutcoding.ghinda.com/series/ai-code-generation-ruby),
   and at [EuRuKo 2025](https://2025.euruko.org) I ran a workshop called
-  _"Don't Let Your AI Guess: Teach It to Test!"_ I think test design is
-  becoming more important, not less, now that code is cheap to generate.
+  _"Don't Let Your AI Guess: Teach It to Test!"_ I think test design
+  matters more now that code is cheap to generate.
 - **Test design** — teaching developers how to write fewer tests that cover
   more cases, through [Good Enough Testing](https://goodenoughtesting.com).
 
