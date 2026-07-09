@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /blog/creativity/2020/wallace-model-of-creative-problem-solving.html
 layout: post
 title: Creative Problem Solving - Wallace Model from 1926
 categories: creativity

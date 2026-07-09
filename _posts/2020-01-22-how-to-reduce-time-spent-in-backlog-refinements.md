@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /blog/learning-notes/2020/how-to-reduce-time-spent-in-backlog-refinements.html
 layout: short
 title: How to reduce time spent in Backlog Refinement
 categories: learning-notes

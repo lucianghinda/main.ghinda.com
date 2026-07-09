@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /blog/shorts/2020/naming-concepts.html
 layout: short
 title: Simple rules for naming concepts while programming
 categories: shorts

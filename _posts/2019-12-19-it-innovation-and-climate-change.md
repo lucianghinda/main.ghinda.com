@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /blog/innovation/2019/it-innovation-and-climate-change.html
 layout: post
 title: IT and climate change
 categories: innovation

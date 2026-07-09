@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /blog/products/2020/domain-structure-for-saas-products.html
 layout: post
 title: Domain structure for SaaS products
 categories: products

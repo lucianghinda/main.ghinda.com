@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /blog/learning-notes/2020/notes-about-the-original-brainstorming-method.html
 layout: short
 title: Notes about the initial brainstorming method
 categories: learning-notes

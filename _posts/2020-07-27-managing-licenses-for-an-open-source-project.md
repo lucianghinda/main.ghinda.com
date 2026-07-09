@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /blog/opensource/2020/managing-licenses-for-an-open-source-project.html
 layout: post
 title: Management of open source licenses
 categories: opensource
@@ -18,7 +20,7 @@ image:
 I usually not read a licenses of packages I am using. 
 I just click on the License file of a package I want to install, but I don't look further to its dependencies. 
 
-Now that I am starting [an open-source project](https://ghinda.com/blog/opensource/2020/start-open-source-project.html) and learning about various open-source licenses, I am more aware of the implications of licenses included in a project.
+Now that I am starting [an open-source project](https://ghinda.com/opensource/2020/start-open-source-project.html) and learning about various open-source licenses, I am more aware of the implications of licenses included in a project.
 
 This is how I discovered the fantastic gem named [Licensed](https://github.com/github/licensed). 
 
@@ -65,7 +67,7 @@ allowed:
  - cc0-1.0
 ```
 
-This is a standard configuration that I recommend for a standard Ruby on Rails project based on non-left copy licenses. All these licenses allows anyone to do almost anything with your project with the only restriction being that they must mention the creator. I wrote an extensive guide about MIT, Apache 2.0 and BSD [here](https://ghinda.com/blog/opensource/2020/open-source-licenses-apache-mit-bsd.html) 
+This is a standard configuration that I recommend for a standard Ruby on Rails project based on non-left copy licenses. All these licenses allows anyone to do almost anything with your project with the only restriction being that they must mention the creator. I wrote an extensive guide about MIT, Apache 2.0 and BSD [here](https://ghinda.com/opensource/2020/open-source-licenses-apache-mit-bsd.html) 
 
 You can check now what kind of dependencies your project has by using: 
 

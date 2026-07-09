@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /blog/learning-notes/2020/a-simple-way-to-enable-autonomy-for-dev-team.html
 layout: short
 title: A very simple way to enable autonomy for a development team
 categories: learning-notes

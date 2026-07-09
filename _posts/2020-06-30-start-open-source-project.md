@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /blog/opensource/2020/start-open-source-project.html
 layout: post
 title: Why I am starting an open-source project
 categories: opensource

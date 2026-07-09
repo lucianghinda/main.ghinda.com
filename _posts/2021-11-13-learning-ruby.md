@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /blog/programming/ruby/2021/learning-ruby.html
 layout: post
 title: A Guide to Learn Ruby in 2021 and 2022
 categories: programming/ruby

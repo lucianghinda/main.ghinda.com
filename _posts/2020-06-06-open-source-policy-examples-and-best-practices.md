@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /blog/opensource/2020/open-source-policy-examples-and-best-practices.html
 layout: post
 title: Open Source Policy - Examples and best practices
 categories: opensource

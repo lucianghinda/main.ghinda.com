@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /blog/shorts/2020/effects-of-technical-debts-for-product.html
 layout: short
 title: Effects of technical debt from a Product Manager perspective
 categories: shorts

@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /blog/opensource/2020/open-source-licenses-apache-mit-bsd.html
 layout: post
 title: A developer's guide to the most common open-source licenses (MIT, Apache 2.0, BSD)
 categories: opensource
@@ -32,7 +34,7 @@ Please note this is a long article covering the following topics:
     + [MIT License: permissions, conditions and limitations](#mit-license-permissions-conditions-and-limitations)
     + [Risks for choosing MIT License](#risks-for-choosing-mit-license)
         * [What is left out or unclear](#what-is-left-out-or-unclear)
-        * [Possible risks from difference versions](l#possible-risks-from-difference-versions)
+        * [Possible risks from difference versions](#possible-risks-from-difference-versions)
     + [Compatibilities with other open-source licenses](#compatibilities-with-other-open-source-licenses)
     + [Open source policies recommending it as default](#open-source-policies-recommending-it-as-default)
     + [Example of projects using MIT License](#example-of-projects-using-mit-license)

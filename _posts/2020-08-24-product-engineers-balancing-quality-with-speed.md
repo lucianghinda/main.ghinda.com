@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /blog/teams/2020/product-engineers-balancing-quality-with-speed.html
 layout: post
 title: Product Engineers - or how to balance speed and quality
 categories: teams

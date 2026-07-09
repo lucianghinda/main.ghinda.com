@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /blog/shorts/2020/dont-do-this-short-stories-for-pos.html
 layout: short
 title: Don't do this - short stories for POs
 categories: shorts

@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /blog/shorts/2020/product-manager-should-explain-their-decisions.html
 layout: short
 title: Product Managers should explain their decisions
 categories: shorts

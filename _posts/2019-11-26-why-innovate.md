@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /blog/innovation/2019/why-innovate.html
 layout: post
 title: Why innovate?
 categories: innovation

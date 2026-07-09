@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /blog/programming/2021/learning-ruby-on-rails.html
 layout: post
 title: Learning Ruby on Rails - a guide about the WHY and the HOW
 categories: programming

@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /blog/shorts/2020/allowing-failure-in-organisation.html
 layout: short
 title: Employee engagement starts with how your organisation reacts to failure
 categories: shorts

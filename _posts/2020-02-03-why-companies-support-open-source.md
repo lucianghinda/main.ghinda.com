@@ -1,4 +1,6 @@
 ---
+redirect_from:
+  - /blog/learning-notes/2020/why-companies-support-open-source.html
 layout: learning-note
 title: Companies involvement in open-source
 categories: learning-notes
