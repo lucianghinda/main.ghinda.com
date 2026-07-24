@@ -11,7 +11,13 @@ on:
   # Rebuild and deploy on every push to the default branch.
   push:
     branches: [main]
-  # Allow manual runs from the Actions tab.
+  # Refresh the aggregated homepage feed on a schedule so posts published on
+  # notes.ghinda.com and allaboutcoding.ghinda.com appear without a push. Cron
+  # is UTC; every 3 hours. (GitHub pauses schedules after 60 days of no repo
+  # activity — a push or a manual run re-enables them.)
+  schedule:
+    - cron: "0 */3 * * *"
+  # Allow manual runs from the Actions tab (use this to force an instant refresh).
   workflow_dispatch:
 
 # Least privilege for the job, plus what the Pages deploy needs.
@@ -40,6 +46,13 @@ jobs:
           # Bump this if the build ever needs a newer Ruby.
           ruby-version: "3.4"
           bundler-cache: true
+
+      - name: Refresh external feeds
+        # Pulls the latest posts from notes.ghinda.com and allaboutcoding into
+        # _data/external_posts.yml so the homepage "Recent writing" stream is
+        # current at build time. On a feed failure it falls back to the copy
+        # committed in the repo, so the build never breaks (see bin/fetch_feeds).
+        run: bundle exec bin/fetch_feeds
 
       - name: Build with Jekyll
         # Compiles Tailwind and writes _site. Production env turns on analytics.
