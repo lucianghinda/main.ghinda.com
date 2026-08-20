@@ -20,14 +20,14 @@ sitemap: false
   Markdown link text early; URLs get parentheses percent-encoded for the same
   reason. Neither appears in the current data — this is insurance.
 
-  External URLs are normalized before ".md" is appended: query and fragment are
-  dropped, then `split: "/" | join: "/"` removes any trailing slash, because
-  Ruby's String#split discards trailing empty fields. allaboutcoding.ghinda.com
-  serves its URLs with a trailing slash and notes.ghinda.com without, so both
-  shapes have to land on the same ".md". Do NOT reach for `remove_last` here:
-  Jekyll 4.4 pins Liquid 4.0.4, which does not have that filter, and Liquid
-  passes a value through unknown filters silently — it produced "/slug/.md" on
-  every allaboutcoding link with a green build.
+  External links do no URL surgery here. bin/fetch_feeds derives each item's
+  "markdown_url" in Ruby and confirms it responds before writing it, so this
+  template only picks the verified value and falls back to the HTML page when
+  there is none. That split is deliberate: Liquid passes values through unknown
+  filters silently rather than failing, so URL building here shipped "/slug/.md"
+  on every allaboutcoding link with a green build. Watch for that when editing
+  the filters below — Jekyll 4.4 pins Liquid 4.0.4, so anything added in Liquid
+  5 (`remove_last`, for one) is silently a no-op.
 {%- endcomment -%}
 # {{ site.title }}
 
@@ -46,14 +46,14 @@ sitemap: false
 {%- endfor %}
 ## Writing elsewhere
 
-> Recent posts from my other sites, also linked to their Markdown source.
+> Recent posts from my other sites, linked to their Markdown source where the
+> site publishes one.
 
 {% assign externals = site.data.external_posts | sort: "date" | reverse -%}
 {%- for item in externals -%}
 {%- if item.url and item.title and item.date -%}
 {%- assign title = item.title | normalize_whitespace | replace: "[", "\[" | replace: "]", "\]" -%}
-{%- assign base = item.url | split: "?" | first | split: "#" | first | split: "/" | join: "/" -%}
-{%- assign url = base | append: ".md" | replace: "(", "%28" | replace: ")", "%29" -%}
+{%- assign url = item.markdown_url | default: item.url | replace: "(", "%28" | replace: ")", "%29" -%}
 - [{{ title }}]({{ url }}) | Published at: {{ item.date | date: "%Y-%m-%d" }}
 {% endif -%}
 {%- endfor -%}

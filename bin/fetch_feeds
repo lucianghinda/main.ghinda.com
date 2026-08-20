@@ -13,6 +13,12 @@
 #   * Dates are written as unquoted ISO 8601 Time scalars (via Psych) so Jekyll
 #     reads them back as Time, keeping them sortable against local post dates in
 #     Liquid (`site.posts | concat: externals | sort: "date"`).
+#   * Each item also gets a "markdown_url" when the source site serves a raw .md
+#     sibling, checked here with a HEAD request. llms.txt links to it. Deriving
+#     and verifying the URL here rather than in Liquid is deliberate: Liquid
+#     silently passes values through unknown filters, so a bad URL there ships
+#     dead links on a green build. Items whose .md is missing keep only "url",
+#     and llms.txt falls back to the HTML page for them.
 
 require "net/http"
 require "uri"
@@ -29,6 +35,9 @@ FEEDS = {
 DATA_FILE = File.expand_path("../_data/external_posts.yml", __dir__)
 MAX_PER_FEED = 12
 DESC_LIMIT = 160
+USER_AGENT = "ghinda-blog-feed-fetcher"
+PROBE_TIMEOUT = 5
+PROBE_CONCURRENCY = 8
 
 def fetch(url, redirects = 3)
   uri = URI.parse(url)
@@ -36,7 +45,7 @@ def fetch(url, redirects = 3)
   http.use_ssl = uri.scheme == "https"
   http.open_timeout = 10
   http.read_timeout = 10
-  req = Net::HTTP::Get.new(uri.request_uri, "User-Agent" => "ghinda-blog-feed-fetcher")
+  req = Net::HTTP::Get.new(uri.request_uri, "User-Agent" => USER_AGENT)
   res = http.request(req)
 
   case res
@@ -78,6 +87,78 @@ def atom_link(entry)
   href = link.respond_to?(:href) ? link.href : nil
   href ||= entry.links.map(&:href).compact.first if entry.respond_to?(:links)
   href
+end
+
+# Raw-Markdown sibling of a post URL: drop any query and fragment, strip
+# trailing slashes, then append ".md". allaboutcoding serves its post URLs with
+# a trailing slash and notes without, so both shapes must land on the same file.
+def markdown_candidate(url)
+  uri = URI.parse(url)
+  return nil unless uri.is_a?(URI::HTTP)
+
+  uri.query = nil
+  uri.fragment = nil
+  path = uri.path.sub(%r{/+\z}, "")
+  return nil if path.empty?
+
+  uri.path = path.end_with?(".md") ? path : "#{path}.md"
+  uri.to_s
+rescue URI::InvalidURIError
+  nil
+end
+
+# :ok, :missing, or :unknown. :unknown means the check itself failed (timeout,
+# DNS, 5xx), so the caller keeps whatever the previous run recorded rather than
+# downgrading a good link because the network blipped.
+def probe(url, method = Net::HTTP::Head, redirects = 2)
+  uri = URI.parse(url)
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = uri.scheme == "https"
+  http.open_timeout = PROBE_TIMEOUT
+  http.read_timeout = PROBE_TIMEOUT
+  res = http.request(method.new(uri.request_uri, "User-Agent" => USER_AGENT))
+
+  case res
+  when Net::HTTPSuccess then :ok
+  when Net::HTTPRedirection
+    return :unknown if redirects <= 0
+
+    probe(URI.join(url, res["location"]).to_s, method, redirects - 1)
+  when Net::HTTPMethodNotAllowed
+    method == Net::HTTP::Head ? probe(url, Net::HTTP::Get, redirects) : :missing
+  when Net::HTTPServerError then :unknown
+  else :missing
+  end
+rescue StandardError
+  :unknown
+end
+
+def cached_markdown_urls(cached)
+  cached.values.flatten.each_with_object({}) do |item, map|
+    map[item["url"]] = item["markdown_url"] if item["url"] && item["markdown_url"]
+  end
+end
+
+# Sets "markdown_url" on every item whose .md sibling actually responds, and
+# returns the per-URL status for reporting. Batched so one unresponsive host
+# cannot stall the whole run.
+def attach_markdown_urls!(items, previous)
+  statuses = {}
+  lock = Mutex.new
+
+  items.each_slice(PROBE_CONCURRENCY) do |batch|
+    batch.map do |item|
+      Thread.new do
+        candidate = markdown_candidate(item["url"])
+        status = candidate ? probe(candidate) : :missing
+        resolved = status == :ok ? candidate : (previous[item["url"]] if status == :unknown)
+        item["markdown_url"] = resolved if resolved
+        lock.synchronize { statuses[item["url"]] = status }
+      end
+    end.each(&:join)
+  end
+
+  statuses
 end
 
 def normalize(feed, source)
@@ -139,6 +220,21 @@ all = result.values.flatten.sort_by { |it| it["date"] }.reverse
 if all.empty?
   warn "error: no items from any source and no cache; leaving #{DATA_FILE} unchanged"
   exit 0
+end
+
+statuses = attach_markdown_urls!(all, cached_markdown_urls(cached))
+missing  = statuses.select { |_, s| s == :missing }.keys
+unknown  = statuses.select { |_, s| s == :unknown }.keys
+puts "verified .md siblings for #{statuses.count { |_, s| s == :ok }}/#{all.size} items"
+
+unless missing.empty?
+  warn "warning: no .md sibling for #{missing.size} item(s); llms.txt will link to the HTML page:"
+  missing.each { |url| warn "  #{url}" }
+end
+
+unless unknown.empty?
+  warn "warning: could not check #{unknown.size} item(s); kept the previous value where there was one:"
+  unknown.each { |url| warn "  #{url}" }
 end
 
 FileUtils.mkdir_p(File.dirname(DATA_FILE))

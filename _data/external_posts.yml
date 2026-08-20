@@ -6,6 +6,7 @@
     and the…
   source: allaboutcoding
   date: 2026-08-19 10:41:40.000000000 +00:00
+  markdown_url: https://allaboutcoding.ghinda.com/you-can-use-ruby-to-set-the-status-line-in-claude-code.md
 - title: Explain to me in Simple Technical English
   url: https://allaboutcoding.ghinda.com/explain-to-me-in-simple-technical-english/
   description: Both phrases cut Claude's sentences in half when explaining code. The
@@ -13,12 +14,14 @@
     ASD-STE100…
   source: allaboutcoding
   date: 2026-08-14 06:12:41.000000000 +00:00
+  markdown_url: https://allaboutcoding.ghinda.com/explain-to-me-in-simple-technical-english.md
 - title: Claude Haiku still open to indirect prompt injection
   url: https://notes.ghinda.com/post/claude-haiku-still-open-to-indirect-prompt-injection
   description: Something to keep in mind for today if you use Claude to do web research: 
     Anthropic wrote about this here…
   source: notes
   date: 2026-08-13 14:38:40.000000000 Z
+  markdown_url: https://notes.ghinda.com/post/claude-haiku-still-open-to-indirect-prompt-injection.md
 - title: Time is already out for updating Rails to at least 8.0.5.1
   url: https://notes.ghinda.com/post/time-is-already-out-for-updating-rails-to-at-least-8-0-5-1
   description: In case anyone still runs Rails 7.2.x this is the sign to rush the
@@ -26,6 +29,7 @@
     Rails…
   source: notes
   date: 2026-08-12 09:32:39.000000000 Z
+  markdown_url: https://notes.ghinda.com/post/time-is-already-out-for-updating-rails-to-at-least-8-0-5-1.md
 - title: What the HANDBOOK.md Benchmark Says About Your CLAUDE.md
   url: https://allaboutcoding.ghinda.com/what-the-handbook-md-benchmark-says-about-your-claude-md/
   description: What the HANDBOOK.md benchmark measures, why the best model still fails
@@ -33,6 +37,7 @@
     you…
   source: allaboutcoding
   date: 2026-08-11 06:12:41.000000000 +00:00
+  markdown_url: https://allaboutcoding.ghinda.com/what-the-handbook-md-benchmark-says-about-your-claude-md.md
 - title: One Week of Building and Reviewing Code With LLM Agents
   url: https://allaboutcoding.ghinda.com/one-week-of-coding-and-reviewing-with-llm-agents/
   description: 'One week of agent-first backend work in the logs: 2,200 session files
@@ -40,12 +45,14 @@
     real…'
   source: allaboutcoding
   date: 2026-08-11 05:07:06.000000000 +00:00
+  markdown_url: https://allaboutcoding.ghinda.com/one-week-of-coding-and-reviewing-with-llm-agents.md
 - title: Where Six AI Coding CLIs Store Your Session Logs
   url: https://allaboutcoding.ghinda.com/where-ai-coding-clis-store-session-logs/
   description: Where Claude Code, Codex, Cursor, Amp, opencode, and pi store session
     logs, which formats they use, how long they keep them, and what remains undocumented.
   source: allaboutcoding
   date: 2026-08-06 07:58:55.000000000 +00:00
+  markdown_url: https://allaboutcoding.ghinda.com/where-ai-coding-clis-store-session-logs.md
 - title: Tell the Agent to Write Its Scripts in Ruby
   url: https://allaboutcoding.ghinda.com/write-agent-scripts-in-ruby/
   description: One block in CLAUDE.md and AGENTS.md that makes coding agents write
@@ -53,6 +60,7 @@
     instead of a…
   source: allaboutcoding
   date: 2026-08-04 08:25:15.000000000 +00:00
+  markdown_url: https://allaboutcoding.ghinda.com/write-agent-scripts-in-ruby.md
 - title: If you have tickets and want to review or close them use Codex over Claude
   url: https://notes.ghinda.com/post/if-you-have-tickets-and-want-to-review-or-close-them-use-codex-over-claude
   description: Using both Codex and Claude Code CLI to manage JIRA tickets (previously
@@ -60,18 +68,21 @@
     about…
   source: notes
   date: 2026-07-27 12:19:00.000000000 Z
+  markdown_url: https://notes.ghinda.com/post/if-you-have-tickets-and-want-to-review-or-close-them-use-codex-over-claude.md
 - title: Setting up a workflow with superplanning and fizzy
   url: https://allaboutcoding.ghinda.com/setting-up-a-workflow-with-superplanning-and-fizzy/
   description: Documenting a weekend experiment with codex /goal command, using superplanning
     for initial planning and fizzy cli skill for task management. A straightforward…
   source: allaboutcoding
   date: 2026-05-02 16:59:15.000000000 +00:00
+  markdown_url: https://allaboutcoding.ghinda.com/setting-up-a-workflow-with-superplanning-and-fizzy.md
 - title: Stats from two months of agent-first development using backoffs
   url: https://allaboutcoding.ghinda.com/stats-from-two-months-agent-first-development-using-backoffs/
   description: 'Real stats from two months of agent-first development: four coding
     agents (Claude, Codex, Cursor, Amp) competing on every feature across 951 sessions'
   source: allaboutcoding
   date: 2026-05-02 16:59:15.000000000 +00:00
+  markdown_url: https://allaboutcoding.ghinda.com/stats-from-two-months-agent-first-development-using-backoffs.md
 - title: Adding Session Handoff to Superpowers Ruby
   url: https://allaboutcoding.ghinda.com/adding-session-handoff-to-superpowers-ruby/
   description: Capture the session state before compaction and restores it after.
@@ -79,29 +90,34 @@
     ca
   source: allaboutcoding
   date: 2026-04-16 03:19:06.000000000 +00:00
+  markdown_url: https://allaboutcoding.ghinda.com/adding-session-handoff-to-superpowers-ruby.md
 - title: Two Agent Skills to Help With Prompt Security
   url: https://allaboutcoding.ghinda.com/two-agent-skills-to-help-with-prompt-security/
   description: 51 checks that might help combat some of prompt injections in LLM applications.
   source: allaboutcoding
   date: 2026-04-07 04:48:07.000000000 +00:00
+  markdown_url: https://allaboutcoding.ghinda.com/two-agent-skills-to-help-with-prompt-security.md
 - title: 'superpowers-ruby v6.1.0: a Rails upgrade skill'
   url: https://allaboutcoding.ghinda.com/superpowers-ruby-v6-1-0-a-rails-upgrade-skill/
   description: Automate Rails upgrades with superpowers-ruby v6.1.0 — the rails-upgrade
     skill enforces green test suites, resolves defaults, and requires explicit ap
   source: allaboutcoding
   date: 2026-04-02 12:27:23.000000000 +00:00
+  markdown_url: https://allaboutcoding.ghinda.com/superpowers-ruby-v6-1-0-a-rails-upgrade-skill.md
 - title: 'Superplanning: a unified planning skill for Claude Code'
   url: https://allaboutcoding.ghinda.com/superplanning-a-unified-planning-skill-for-claude-code/
   description: 'Superplanning: a unified Claude Code skill merging top elements from
     48+ planning skills into a 7-phase flow for product and feature planning.'
   source: allaboutcoding
   date: 2026-03-30 05:11:12.000000000 +00:00
+  markdown_url: https://allaboutcoding.ghinda.com/superplanning-a-unified-planning-skill-for-claude-code.md
 - title: Obsidian + QMD
   url: https://notes.ghinda.com/post/obsidian-qmd
   description: Now that Obsidian has headless support (see https://help.obsidian.md/sync/headless,
     you know what works really well with it? https://github.com/tobi/qmd It’s a…
   source: notes
   date: 2026-03-03 10:20:05.000000000 Z
+  markdown_url: https://notes.ghinda.com/post/obsidian-qmd.md
 - title: Enable opusplan mode for Claude Code
   url: https://notes.ghinda.com/post/enable-opusplan-mode-for-claude-code
   description: 'What is opusplan mode? Anthropic documentation says: “Special mode
@@ -109,6 +125,7 @@
     how to…'
   source: notes
   date: 2026-02-27 14:59:16.000000000 Z
+  markdown_url: https://notes.ghinda.com/post/enable-opusplan-mode-for-claude-code.md
 - title: 'Claude Code settings: default to plan mode and plans directory'
   url: https://notes.ghinda.com/post/claude-code-settings-default-to-plan-mode-and-plans-directory
   description: 'If you are usually first go to plan mode in Claude Code then you can
@@ -116,6 +133,7 @@
     session…'
   source: notes
   date: 2026-02-10 11:17:54.000000000 Z
+  markdown_url: https://notes.ghinda.com/post/claude-code-settings-default-to-plan-mode-and-plans-directory.md
 - title: Few personal notes from the "How AI Impacts Skill Formation" from Anthropic
   url: https://notes.ghinda.com/post/few-personal-notes-from-the-how-ai-impacts-skill-formation-from-anthropic
   description: Anthropic published a study called "How AI Impacts Skill Formation"
@@ -123,6 +141,7 @@
     work…
   source: notes
   date: 2026-01-31 14:32:00.000000000 Z
+  markdown_url: https://notes.ghinda.com/post/few-personal-notes-from-the-how-ai-impacts-skill-formation-from-anthropic.md
 - title: Ruby Content and AI in the newsletter
   url: https://notes.ghinda.com/post/ruby-content-and-ai-in-the-newsletter
   description: Every week I curate what the Ruby community shares online and publish
@@ -130,6 +149,7 @@
     looks a…
   source: notes
   date: 2026-01-30 10:59:49.000000000 Z
+  markdown_url: https://notes.ghinda.com/post/ruby-content-and-ai-in-the-newsletter.md
 - title: If you're writing API documentation, always specify units for duration parameters.
   url: https://notes.ghinda.com/post/if-you-re-writing-api-documentation-always-specify-units-for-duration-parameters
   description: 'If you''re writing API documentation, always specify units for duration
@@ -137,21 +157,25 @@
     the…'
   source: notes
   date: 2026-01-21 18:27:09.000000000 Z
+  markdown_url: https://notes.ghinda.com/post/if-you-re-writing-api-documentation-always-specify-units-for-duration-parameters.md
 - title: Plan your upgrades of Rails
   url: https://notes.ghinda.com/post/plan-your-upgrades-of-rails
   description: 'If you are doing some planning this week, consider adding checkpoints
     for upgrading your #Rails app  Specifically, if you are still running Rails 7.2T.x …'
   source: notes
   date: 2026-01-18 06:00:35.000000000 Z
+  markdown_url: https://notes.ghinda.com/post/plan-your-upgrades-of-rails.md
 - title: Ruby and token-efficiency
   url: https://notes.ghinda.com/post/ruby-and-token-efficiency
   description: Seems like Ruby is pretty well positioned as a language that is token-efficient
     when used with LLMs. Source "Which programming languages are most…
   source: notes
   date: 2026-01-12 04:32:13.000000000 Z
+  markdown_url: https://notes.ghinda.com/post/ruby-and-token-efficiency.md
 - title: If claude code sometimes skip CLAUDE.md file
   url: https://notes.ghinda.com/post/if-claude-code-sometimes-skip-claude-md-file
   description: 'I was reading this article: https://www.humanlayer.dev/blog/writing-a-good-claude-md
     and found there the following: Then I was curious to find out more about…'
   source: notes
   date: 2025-12-02 13:08:07.000000000 Z
+  markdown_url: https://notes.ghinda.com/post/if-claude-code-sometimes-skip-claude-md-file.md
