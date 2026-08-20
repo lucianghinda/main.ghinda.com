@@ -20,6 +20,9 @@ group :jekyll_plugins do
   gem "jekyll-target-blank"
   gem "jekyll-tailwind", "~> 2.0" # crbelaus/jekyll-tailwind: compiles Tailwind via a build hook, no Node
   gem "jekyll-redirect-from" # redirects legacy ghinda.com URLs to the new pages
+  # Publishes a raw .md sibling for every post plus an /llms.txt index, so LLMs
+  # and agents can read the source instead of scraping the rendered HTML.
+  gem "jekyll-agent-markdown", "~> 0.2"
 end
 
 # Ships the standalone Tailwind v4 CLI binary; pinning ~> 4.0 selects Tailwind v4.

@@ -25,6 +25,15 @@
 
   {%- feed_meta -%}
 
+  {%- comment -%}
+    Point agents and LLM tooling at the raw Markdown source of this post.
+    jekyll-agent-markdown sets page.agent_markdown_url only for posts it
+    actually exported, so opted-out or colliding posts emit nothing.
+  {%- endcomment -%}
+  {%- if page.agent_markdown_url -%}
+  <link rel="alternate" type="text/markdown" href="{{ page.agent_markdown_url | relative_url }}" title="{{ page.title | escape }} (Markdown)">
+  {%- endif -%}
+
   {%- if jekyll.environment == 'production' -%}
   <script src="https://tinylytics.app/embed/p5scxyKzRoMRe4_zmoos.js" defer></script>
   {%- endif -%}

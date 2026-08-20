@@ -53,9 +53,21 @@ plugins:
   - jekyll-sitemap
   - jekyll-target-blank
   - jekyll-redirect-from # redirects old ghinda.com URLs to their new homes
+  - jekyll-agent-markdown # writes a raw .md sibling per post plus /llms.txt
 
 target-blank:
   noreferrer: false
+
+# lucianghinda/jekyll-agent-markdown: exports every post as raw Markdown next to
+# its HTML (/2026/post.html -> /2026/post.md) and builds an /llms.txt index, so
+# agents read the source instead of scraping rendered pages. These are the gem
+# defaults, spelled out on purpose: setting llms_txt explicitly makes the build
+# fail loudly if site.url ever breaks, instead of silently dropping llms.txt.
+agent_markdown:
+  posts: true
+  llms_txt: true
+  sort: desc
+  include_dates: true
 
 exclude:
   - Gemfile
