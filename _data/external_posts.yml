@@ -1,72 +1,101 @@
 ---
+- title: You can use Ruby to set the status line in Claude Code
+  url: https://allaboutcoding.ghinda.com/you-can-use-ruby-to-set-the-status-line-in-claude-code/
+  description: Claude Code writes the session JSON to your script's stdin and displays
+    what it prints back. Thirty lines of Ruby give you the folder, the git branch,
+    and the…
+  source: allaboutcoding
+  date: 2026-08-19 10:41:40.000000000 +00:00
+- title: Explain to me in Simple Technical English
+  url: https://allaboutcoding.ghinda.com/explain-to-me-in-simple-technical-english/
+  description: Both phrases cut Claude's sentences in half when explaining code. The
+    vague Simple Technical English loses 8.5% of the facts, and the real standard
+    ASD-STE100…
+  source: allaboutcoding
+  date: 2026-08-14 06:12:41.000000000 +00:00
+- title: Claude Haiku still open to indirect prompt injection
+  url: https://notes.ghinda.com/post/claude-haiku-still-open-to-indirect-prompt-injection
+  description: Something to keep in mind for today if you use Claude to do web research: 
+    Anthropic wrote about this here…
+  source: notes
+  date: 2026-08-13 14:38:40.000000000 Z
+- title: Time is already out for updating Rails to at least 8.0.5.1
+  url: https://notes.ghinda.com/post/time-is-already-out-for-updating-rails-to-at-least-8-0-5-1
+  description: In case anyone still runs Rails 7.2.x this is the sign to rush the
+    upgrade.  I assume that version is now not supported anymore.  If you are running
+    Rails…
+  source: notes
+  date: 2026-08-12 09:32:39.000000000 Z
+- title: What the HANDBOOK.md Benchmark Says About Your CLAUDE.md
+  url: https://allaboutcoding.ghinda.com/what-the-handbook-md-benchmark-says-about-your-claude-md/
+  description: What the HANDBOOK.md benchmark measures, why the best model still fails
+    two of every three tasks under strict grading, and what that means for the rules
+    you…
+  source: allaboutcoding
+  date: 2026-08-11 06:12:41.000000000 +00:00
+- title: One Week of Building and Reviewing Code With LLM Agents
+  url: https://allaboutcoding.ghinda.com/one-week-of-coding-and-reviewing-with-llm-agents/
+  description: 'One week of agent-first backend work in the logs: 2,200 session files
+    across four tools, 350 prompts typed by hand, and which checks actually found
+    real…'
+  source: allaboutcoding
+  date: 2026-08-11 05:07:06.000000000 +00:00
+- title: Where Six AI Coding CLIs Store Your Session Logs
+  url: https://allaboutcoding.ghinda.com/where-ai-coding-clis-store-session-logs/
+  description: Where Claude Code, Codex, Cursor, Amp, opencode, and pi store session
+    logs, which formats they use, how long they keep them, and what remains undocumented.
+  source: allaboutcoding
+  date: 2026-08-06 07:58:55.000000000 +00:00
+- title: Tell the Agent to Write Its Scripts in Ruby
+  url: https://allaboutcoding.ghinda.com/write-agent-scripts-in-ruby/
+  description: One block in CLAUDE.md and AGENTS.md that makes coding agents write
+    throwaway scripts in Ruby instead of Python or bash, so you stay the reviewer
+    instead of a…
+  source: allaboutcoding
+  date: 2026-08-04 08:25:15.000000000 +00:00
+- title: If you have tickets and want to review or close them use Codex over Claude
+  url: https://notes.ghinda.com/post/if-you-have-tickets-and-want-to-review-or-close-them-use-codex-over-claude
+  description: Using both Codex and Claude Code CLI to manage JIRA tickets (previously
+    created from a requirements doc via Claude Code), I noticed something interesting
+    about…
+  source: notes
+  date: 2026-07-27 12:19:00.000000000 Z
 - title: Setting up a workflow with superplanning and fizzy
-  url: https://allaboutcoding.ghinda.com/setting-up-a-workflow-with-superplanning-and-fizzy
-  description: 'I''m trying the /goal command in codex this weekend. Here''s the workflow
-    I set up: 1. First, I used superplanning to create the initial plan. Then, using
-    the…'
+  url: https://allaboutcoding.ghinda.com/setting-up-a-workflow-with-superplanning-and-fizzy/
+  description: Documenting a weekend experiment with codex /goal command, using superplanning
+    for initial planning and fizzy cli skill for task management. A straightforward…
+  source: allaboutcoding
+  date: 2026-05-02 16:59:15.000000000 +00:00
+- title: Stats from two months of agent-first development using backoffs
+  url: https://allaboutcoding.ghinda.com/stats-from-two-months-agent-first-development-using-backoffs/
+  description: 'Real stats from two months of agent-first development: four coding
+    agents (Claude, Codex, Cursor, Amp) competing on every feature across 951 sessions'
   source: allaboutcoding
   date: 2026-05-02 16:59:15.000000000 +00:00
 - title: Adding Session Handoff to Superpowers Ruby
-  url: https://allaboutcoding.ghinda.com/adding-session-handoff-to-superpowers-ruby
-  description: 'The problem that made me build this feature: I was in the middle of
-    a long implementation session, Claude Code compacted the context, and everything
-    I had been…'
+  url: https://allaboutcoding.ghinda.com/adding-session-handoff-to-superpowers-ruby/
+  description: Capture the session state before compaction and restores it after.
+    Not a summary. A structured handoff document that any session, agent, or person
+    ca
   source: allaboutcoding
   date: 2026-04-16 03:19:06.000000000 +00:00
 - title: Two Agent Skills to Help With Prompt Security
-  url: https://allaboutcoding.ghinda.com/two-agent-skills-to-help-with-prompt-security
-  description: When you build a product that uses LLMs and prompts, security becomes
-    a specific kind of hard problem. Simon Willison described the core risk well in
-    The…
+  url: https://allaboutcoding.ghinda.com/two-agent-skills-to-help-with-prompt-security/
+  description: 51 checks that might help combat some of prompt injections in LLM applications.
   source: allaboutcoding
   date: 2026-04-07 04:48:07.000000000 +00:00
 - title: 'superpowers-ruby v6.1.0: a Rails upgrade skill'
-  url: https://allaboutcoding.ghinda.com/superpowers-ruby-v6-1-0-a-rails-upgrade-skill
-  description: 'One new skill in this release: rails-upgrade. Why I built this Seeing
-    the skills for upgrading a Rails app released in the last months with the one
-    from…'
+  url: https://allaboutcoding.ghinda.com/superpowers-ruby-v6-1-0-a-rails-upgrade-skill/
+  description: Automate Rails upgrades with superpowers-ruby v6.1.0 — the rails-upgrade
+    skill enforces green test suites, resolves defaults, and requires explicit ap
   source: allaboutcoding
   date: 2026-04-02 12:27:23.000000000 +00:00
 - title: 'Superplanning: a unified planning skill for Claude Code'
-  url: https://allaboutcoding.ghinda.com/superplanning-a-unified-planning-skill-for-claude-code
-  description: I noticed I kept switching between planning skills mid-session. One
-    skill had the best forcing questions. Another had the best implementation structure.
-    A…
+  url: https://allaboutcoding.ghinda.com/superplanning-a-unified-planning-skill-for-claude-code/
+  description: 'Superplanning: a unified Claude Code skill merging top elements from
+    48+ planning skills into a 7-phase flow for product and feature planning.'
   source: allaboutcoding
   date: 2026-03-30 05:11:12.000000000 +00:00
-- title: 'superpowers-ruby v5.0.6: compound skills and Ruby idiom fixes'
-  url: https://allaboutcoding.ghinda.com/superpowers-ruby-v5-0-6-compound-skills-and-ruby-idiom-fixes
-  description: Here are some additions I did for superpowers-ruby collection of plugins
-    and skills. A fork from the well known superpowers plugin where I added some skills…
-  source: allaboutcoding
-  date: 2026-03-25 11:21:36.000000000 +00:00
-- title: '3 New RuboCop Style Cops: SelectByKind, SelectByRange, PartitionInsteadOfDoubleSelect'
-  url: https://allaboutcoding.ghinda.com/3-new-rubocop-style-cops-selectbykind-selectbyrange-partitioninsteadofdoubleselect
-  description: While upgrading RuboCop in one project, I noticed three new style cops
-    in v1.85.0. I took a close look at them and my recommendation is to enable them
-    all.…
-  source: allaboutcoding
-  date: 2026-03-19 05:49:15.000000000 +00:00
-- title: How to Add Rubocop MCP to Claude Code and OpenCode
-  url: https://allaboutcoding.ghinda.com/how-to-add-rubocop-mcp-to-claude-code-and-opencode
-  description: I have been writing recently about Ruby tooling in AI coding editors.
-    I covered how to enable Ruby LSP in Claude Code and how OpenCode automatically
-    installs…
-  source: allaboutcoding
-  date: 2026-03-13 05:36:42.000000000 +00:00
-- title: OpenCode Uses Rubocop as the Ruby Language Server
-  url: https://allaboutcoding.ghinda.com/opencode-uses-rubocop-as-the-ruby-language-server
-  description: 'Yesterday I shared about how to configure Claude Code to use Ruby
-    LSP. Today I will talk about OpenCode. Here the things are simple: OpenCode automatically…'
-  source: allaboutcoding
-  date: 2026-03-12 06:01:17.000000000 +00:00
-- title: How to Enable Ruby LSP in Claude Code and OpenCode
-  url: https://allaboutcoding.ghinda.com/configure-claude-code-with-ruby-lsp
-  description: RubyLSP plugin was officially added to Claude Code. See this commit
-    This way you can use Ruby LSP as a real tool inside Claude Code, and the setup
-    takes just a…
-  source: allaboutcoding
-  date: 2026-03-11 10:53:20.000000000 +00:00
 - title: Obsidian + QMD
   url: https://notes.ghinda.com/post/obsidian-qmd
   description: Now that Obsidian has headless support (see https://help.obsidian.md/sync/headless,
@@ -87,12 +116,6 @@
     session…'
   source: notes
   date: 2026-02-10 11:17:54.000000000 Z
-- title: Essential Ruby Gems for Working with Agent Skills Files
-  url: https://allaboutcoding.ghinda.com/essential-ruby-gems-for-working-with-agent-skills-files
-  description: I have created a couple of gems as a foundation for creating more tools
-    to support agents in Ruby. They are very small building blocks to be used by more…
-  source: allaboutcoding
-  date: 2026-02-04 11:24:18.000000000 +00:00
 - title: Few personal notes from the "How AI Impacts Skill Formation" from Anthropic
   url: https://notes.ghinda.com/post/few-personal-notes-from-the-how-ai-impacts-skill-formation-from-anthropic
   description: Anthropic published a study called "How AI Impacts Skill Formation"
@@ -120,13 +143,6 @@
     for upgrading your #Rails app  Specifically, if you are still running Rails 7.2T.x …'
   source: notes
   date: 2026-01-18 06:00:35.000000000 Z
-- title: Improving Git Diffs with Delta
-  url: https://allaboutcoding.ghinda.com/improving-git-diffs-with-delta
-  description: Working with LLMs means reviewing way more diffs than before. I discovered
-    delta a while back and this was such a huge improvement to working in a terminal
-    and…
-  source: allaboutcoding
-  date: 2026-01-16 10:34:11.000000000 +00:00
 - title: Ruby and token-efficiency
   url: https://notes.ghinda.com/post/ruby-and-token-efficiency
   description: Seems like Ruby is pretty well positioned as a language that is token-efficient
@@ -139,24 +155,3 @@
     and found there the following: Then I was curious to find out more about…'
   source: notes
   date: 2025-12-02 13:08:07.000000000 Z
-- title: Ruby Namespace will be renamed to Ruby::Box
-  url: https://notes.ghinda.com/post/ruby-namespace-will-be-renamed-to-ruby-box
-  description: The Ruby namespace will be renamed to `Ruby::Box`. A merge request
-    regarding this was integrated into Ruby's master branch a couple of days ago by
-    Satoshi…
-  source: notes
-  date: 2025-11-11 09:43:04.000000000 Z
-- title: Two good articles about Ruby and Smalltalk
-  url: https://notes.ghinda.com/post/two-good-articles-about-ruby-and-smalltalks
-  description: 'Noel Rappin - Ruby And Its Neighbors: Smalltalk Noel Rappin continues
-    his series of writing about Ruby and languages that inspire it (if you have not
-    read yet…'
-  source: notes
-  date: 2025-11-10 15:25:09.000000000 Z
-- title: Let's discuss Ruby more openly
-  url: https://notes.ghinda.com/post/let-s-discuss-ruby-more-openly
-  description: I'm certain, although I haven't had the time to develop a proper data
-    scraper to confirm, that Ruby articles are appearing more frequently on the front
-    page of…
-  source: notes
-  date: 2025-11-09 05:49:20.000000000 Z
