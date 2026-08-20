@@ -59,13 +59,18 @@ target-blank:
   noreferrer: false
 
 # lucianghinda/jekyll-agent-markdown: exports every post as raw Markdown next to
-# its HTML (/2026/post.html -> /2026/post.md) and builds an /llms.txt index, so
-# agents read the source instead of scraping rendered pages. These are the gem
-# defaults, spelled out on purpose: setting llms_txt explicitly makes the build
-# fail loudly if site.url ever breaks, instead of silently dropping llms.txt.
+# its HTML (/2026/post.html -> /2026/post.md), so agents read the source instead
+# of scraping rendered pages.
+#
+# llms_txt is off because ./llms.txt in this repo builds the index instead: it
+# also lists posts from notes.ghinda.com and allaboutcoding.ghinda.com, which
+# the gem cannot know about (it never touches the network). The gem still
+# publishes the per-post .md files and exposes post.agent_markdown_url, which
+# that template reads. Leaving this true would make the two fight over
+# /llms.txt and log a collision warning on every build.
 agent_markdown:
   posts: true
-  llms_txt: true
+  llms_txt: false
   sort: desc
   include_dates: true
 

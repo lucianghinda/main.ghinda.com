@@ -1,0 +1,59 @@
+---
+layout: null
+permalink: /llms.txt
+sitemap: false
+---
+{%- comment -%}
+  This site owns its own llms.txt rather than using the one
+  jekyll-agent-markdown generates, because the index also lists posts from
+  notes.ghinda.com and allaboutcoding.ghinda.com. The gem can't know about
+  those: it never touches the network, so external items are fetched by
+  bin/fetch_feeds into _data/external_posts.yml (CI refreshes it every 3h).
+
+  agent_markdown.llms_txt is set to false in _config.yml so the gem doesn't
+  fight this file for /llms.txt. The gem still exports the per-post .md
+  siblings, and it hands us their URLs via post.agent_markdown_url — which is
+  nil for opted-out or colliding posts, so the `if` below keeps this index
+  honest without duplicating the gem's rules.
+
+  Titles get their square brackets escaped so a future title can't end the
+  Markdown link text early; URLs get parentheses percent-encoded for the same
+  reason. Neither appears in the current data — this is insurance.
+
+  External URLs are normalized before ".md" is appended: query and fragment are
+  dropped, then `split: "/" | join: "/"` removes any trailing slash, because
+  Ruby's String#split discards trailing empty fields. allaboutcoding.ghinda.com
+  serves its URLs with a trailing slash and notes.ghinda.com without, so both
+  shapes have to land on the same ".md". Do NOT reach for `remove_last` here:
+  Jekyll 4.4 pins Liquid 4.0.4, which does not have that filter, and Liquid
+  passes a value through unknown filters silently — it produced "/slug/.md" on
+  every allaboutcoding link with a green build.
+{%- endcomment -%}
+# {{ site.title }}
+
+> {{ site.description | normalize_whitespace | strip }}
+
+## Articles
+
+> Posts published on this site. Each link points at the post's Markdown source.
+
+{% for post in site.posts -%}
+{%- if post.agent_markdown_url -%}
+{%- assign title = post.title | normalize_whitespace | replace: "[", "\[" | replace: "]", "\]" -%}
+{%- assign url = post.agent_markdown_url | absolute_url | replace: "(", "%28" | replace: ")", "%29" -%}
+- [{{ title }}]({{ url }}) | Published at: {{ post.date | date: "%Y-%m-%d" }}
+{% endif -%}
+{%- endfor %}
+## Writing elsewhere
+
+> Recent posts from my other sites, also linked to their Markdown source.
+
+{% assign externals = site.data.external_posts | sort: "date" | reverse -%}
+{%- for item in externals -%}
+{%- if item.url and item.title and item.date -%}
+{%- assign title = item.title | normalize_whitespace | replace: "[", "\[" | replace: "]", "\]" -%}
+{%- assign base = item.url | split: "?" | first | split: "#" | first | split: "/" | join: "/" -%}
+{%- assign url = base | append: ".md" | replace: "(", "%28" | replace: ")", "%29" -%}
+- [{{ title }}]({{ url }}) | Published at: {{ item.date | date: "%Y-%m-%d" }}
+{% endif -%}
+{%- endfor -%}
