@@ -28,6 +28,24 @@
 
     <main class="flex-1 pb-16">
       {{ content }}
+
+      {%- comment -%}
+        Newsletter invite at the end of every page: on an article it sits at
+        the moment a reader has just finished, on the home page it lands below
+        "Recent writing" once there is something to have liked. Opt out on a
+        page with `newsletter: false` in front matter.
+      {%- endcomment -%}
+      {%- unless page.newsletter == false %}
+      {%- assign nl_hook = "Newsletter" -%}
+      {%- assign nl_medium = "site" -%}
+      {%- if page.layout == "post" or page.layout == "short" or page.layout == "learning-note" -%}
+        {%- assign nl_hook = "Enjoyed this article?" -%}
+        {%- assign nl_medium = "article" -%}
+      {%- elsif page.layout == "home" -%}
+        {%- assign nl_medium = "home" -%}
+      {%- endif -%}
+      {% include newsletter_invite.html hook=nl_hook utm_medium=nl_medium %}
+      {%- endunless %}
     </main>
 
     {%- include footer.html -%}
