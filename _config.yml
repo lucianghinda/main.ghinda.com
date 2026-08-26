@@ -96,6 +96,7 @@ agent_markdown:
   posts: true
   llms_txt: false
   sort: desc
+  include_author: true
   include_dates: true
 
 exclude:
